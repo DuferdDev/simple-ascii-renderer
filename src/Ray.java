@@ -4,8 +4,12 @@ public class Ray {
 	private Vector3 end;
 
 	public Ray(Vector3 o, Vector3 f) {
-		this.start = o;
-		this.end = f;
+		this.start = o.copy();
+		this.end = f.copy();
+	}
+
+	public double length() {
+		return end.add(start.negate()).magnitude();
 	}
 
 	public Vector3 direction() {

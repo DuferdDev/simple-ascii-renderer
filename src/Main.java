@@ -1,7 +1,8 @@
 public class Main {
 
 	public static void main(String[] args) {
-		Runner runner = new Runner(100);
+		long refreshRate = 60;
+		Runner runner = new Runner(1000 / refreshRate);
 		runner.start();
 	}
 

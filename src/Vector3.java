@@ -55,8 +55,12 @@ public class Vector3 {
 		return Math.acos(d);
 	}
 
+	public double magnitudeSquared() {
+		return x * x + y * y + z * z;
+	}
+
 	public double magnitude() {
-		return Math.sqrt(x * x + y * y + z * z);
+		return Math.sqrt(magnitudeSquared());
 	}
 
 	public Vector3 copy() {
@@ -76,7 +80,7 @@ public class Vector3 {
 		// v·cosθ + (a × v)·sinθ + a·(a·v)·(1 − cosθ)
 		return this.multiply(Math.cos(rads))
 				.add(this.cross(axis).multiply(Math.sin(rads)))
-				.add(axis.multiply(axis.dot(this))).multiply(1.0 - Math.cos(rads));
+				.add(axis.multiply(axis.dot(this)).multiply(1.0 - Math.cos(rads)));
 	}
 
 	public double getX() {
