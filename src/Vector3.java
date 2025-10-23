@@ -83,6 +83,10 @@ public class Vector3 {
 				.add(axis.multiply(axis.dot(this)).multiply(1.0 - Math.cos(rads)));
 	}
 
+	public String toString() {
+		return String.format("(%s, %s, %s)", x, y, z);
+	}
+
 	public double getX() {
 		return x;
 	}

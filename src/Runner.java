@@ -16,7 +16,7 @@ public class Runner {
 		double distance = 10;
 		double viewportSize = 2;
 		raycaster = new Raycaster(50, distance, viewportSize);
-		raycaster.setPosition(new Vector3(0, 0, - distance / 2));
+		raycaster.setPosition(new Vector3(0, 0, -5));
 		raycaster.setDirection(new Vector3(0, 0, 1));
 		raycaster.initRays();
 
@@ -28,7 +28,7 @@ public class Runner {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				double rotationSpeed = Math.PI * 2 * delta() / 3;
+				double rotationSpeed = Math.PI * 2 * delta() / 4;
 				donut.setAxis(donut.getAxis().rotate(new Vector3(0, 1, 0), rotationSpeed));
 				donut.setAxis(donut.getAxis().rotate(new Vector3(1, 0, 0), rotationSpeed));
 				donut.setAxis(donut.getAxis().rotate(new Vector3(0, 0, 1), rotationSpeed));
