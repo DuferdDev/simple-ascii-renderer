@@ -1,6 +1,6 @@
 public class Raycaster {
 
-	private final double raycastStep = 0.1;
+	private static final double RAYCAST_STEP = 0.1;
 	private int width;
 	private int height;
 	private Vector3 position;
@@ -24,7 +24,8 @@ public class Raycaster {
 		this.viewportSize = viewportSize;
 	}
 
-	private Raycaster() {}
+	private Raycaster() {
+	}
 
 	public void initRays() {
 		rays = new Ray[height][width];
@@ -37,7 +38,7 @@ public class Raycaster {
 				Vector3 start = position.copy();
 				Vector3 shift = new Vector3(xStart + x * xRaySpacing, yStart - y * yRaySpacing, 0);
 				Vector3 end = start.add(direction.add(shift).multiply(distance));
-				rays[y][x] = new Ray(start,	end);
+				rays[y][x] = new Ray(start, end);
 			}
 		}
 	}
@@ -47,7 +48,7 @@ public class Raycaster {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				Ray ray = rays[y][x];
-				distances[y][x] = shape.getIntersectionDistance(ray, raycastStep);
+				distances[y][x] = shape.getIntersectionDistance(ray, RAYCAST_STEP);
 			}
 		}
 		return distances;
